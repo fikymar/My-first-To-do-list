@@ -48,11 +48,13 @@ $("#checker").click(() => {
 
 $("button").click(() => {
     var hodnota = $("#add").val();
+    if (hodnota === "") {alert("To nebylo nic!")}
+    else {
     $("ul").append("<li>" + hodnota + "</li>");
     $("li:last-child").append('<i id="checker" class="far fa-check-square"></i>');
     $("li:last-child").append('<i id="deleter1" class="fas fa-dumpster-fire"></i>');
     $("input").val("");
-    if (hodnota === "") {alert("To nebylo nic!")}
+    }
     
   });
 /*
@@ -72,6 +74,10 @@ $("ul").on("click", "#checker", function(){
   $("ul").on("click", "#deleter1", function() {
       $(this).parent().remove();
   });
+
+  $("ul").on("click", "#deleter", function() {
+    $("li:first-child").remove();
+});
 
   /*$("ul").on("click", "#deleter", function() {
     $(this).sibling().remove();
